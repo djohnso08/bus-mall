@@ -2,41 +2,49 @@
 <html>
     <head>
         <title>Bus Mall</title>
+        <link rel="icon" type="tab icon" href="img/logo.jpg" />
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
   </head>
   <body>
-      <header>
-          <img src="" alt=""/>
-          <h1>Bus Mall</h1>
-          
+      <div id="container">
           <nav>
+              <img src="img/logo.jpg" alt="Bus Mall Logo"/>
+              <h1>Bus Mall</h1>
               <ul>
-                  <li>Home</li>
-                  <li>Products</li>
-                  <li>About</li>
-                  <li>Contact</li>
+                  <li><a>Home</a></li>
+                  <li><a>Products</a></li>
+                  <li><a>About</a></li>
+                  <li><a>Contact</a></li>
                 </ul>
             </nav>
-        </header>
 
-        <section>
-            <div id="imageContainer">
-                <img id="imageOne"/>
-                <img id="imageTwo"/>
-                <img id="imageThree"/>
+            <h2>At Bus Mall, we are always seeking new ways to improve customer service. And the best way to do that is to ask the experts—our customers. Please take our survey!</h2>
+
+            <aside>
+                    <div id="results">
+                        <h1>Results</h1>
+                    </div>
+                </aside>
+                
+            <div id="main">
+
+            
+            <section>
+                <div id="imageContainer"></div>
+                
+                <div id="button">
+                    <button>Vote!</button>
+                </div>
+                
+                <div id="paragraph">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </section>
             </div>
-            
-            <button>Vote!</button>
-            
-            <p></p>
-        </section>
-
-        <aside>
-            <h1>Results</h1>
-            <ul id="results"></ul>
-        </aside>
+        </div>
         
         <footer>Footer</footer>
-    <script type="text/javascript" src="app.js"></script>
-  </body>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
 </html>
