@@ -11,7 +11,7 @@ function Product(name, filepath, id) {
   this.timesShown = 0;
   this.timesClicked = 0;
   productNum.push(this);
-  
+
   this.imageMaker = function() {
     var imageContainer = document.getElementById('imageContainer');
     var img = document.createElement('img');
@@ -40,21 +40,22 @@ new Product('Usb', 'img/usb.gif', 'usb');
 new Product('Water-can', 'img/water-can.jpg', 'water-can');
 new Product('Wine-glass', 'img/wine-glass.jpg', 'wine-glass');
 
-var randomNumber = function() {
+var randomNum = function() {
   return Math.floor(Math.random() * productNum.length);
 };
 
-var renderThreeProducts = function() {
+var renderImages = function() {
   var imageContainer = document.getElementById('imageContainer');
   imageContainer.innerHTML = '';
   var currentThree = [];
   for (var i = 0; i < 3; i++) {
-    var randomProduct = productNum[randomNumber()];
+    var randomProduct = productNum[randomNum()];
     if (currentThree.includes(randomProduct) || lastThree.includes(randomProduct)){
       i--;
     } else {
       currentThree.push(randomProduct);
       randomProduct.imageMaker();
+      console.log(currentThree);
     }
   }
   lastThree = currentThree;
@@ -67,7 +68,7 @@ function productSelector(event) {
       if (productNum[i].id === String(event.target.id) && totalClicks < 25) {
         productNum[i].timesClicked++;
         totalClicks++;
-        renderThreeProducts();
+        renderImages();
       } else if (totalClicks === 25) {
         imageContainer.removeEventListener('click', productSelector);
         var list = document.getElementById('results');
@@ -86,4 +87,4 @@ function productSelector(event) {
 var imageContainer = document.getElementById('imageContainer');
 imageContainer.addEventListener('click', productSelector);
 
-renderThreeProducts();
+renderImages();
