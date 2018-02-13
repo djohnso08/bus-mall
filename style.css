@@ -2,6 +2,10 @@ body {
     font-family: Helvetica;
 }
 
+header {
+    height: 900px;
+}
+
 nav {
     background-color: rgb(123,12,12);
     color: rgb(221,195,107);

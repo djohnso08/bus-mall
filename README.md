@@ -17,4 +17,6 @@ David Johnson
 This project is licensed under the MIT License
 
 ## Acknowledgments
-GitHub user PurpleBooth for providing README Template
+GitHub user PurpleBooth for providing [README Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+
+Github user adam_p for providing [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
