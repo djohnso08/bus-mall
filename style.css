@@ -45,6 +45,10 @@ img {
     margin: 35px;
 }
 
+img:hover {
+    border: 5px solid bisque;
+}
+
 #main {
     width: 960px;
     margin: 30px auto;
@@ -68,6 +72,11 @@ aside {
     list-style-type: none;
     padding-left: 10px;
 }
+
+#results {
+    margin: 30px;
+}
+
 footer{
        background-color: rgb(221,195,107);
     padding: 20px;
