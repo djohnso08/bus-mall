@@ -68,13 +68,8 @@ aside {
     float: left;
 }
 
-#results li {
-    list-style-type: none;
-    padding-left: 10px;
-}
-
-#results {
-    margin: 30px;
+canvas {
+    display: none;
 }
 
 footer{
