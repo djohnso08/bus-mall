@@ -71,14 +71,20 @@ function productSelector(event) {
         renderImages();
       } else if (totalClicks === 25) {
         imageContainer.removeEventListener('click', productSelector);
-        var list = document.getElementById('results');
-        var resultsList = document.createElement('ul');
-        list.appendChild(resultsList);
-        for (i = 0; i < productNum.length; i++) {
-          var li = document.createElement('li');
-          li.innerText = productNum[i].timesClicked + ' votes for ' + productNum[i].name;
-          list.appendChild(li);
+        var elem = document.querySelector('#imageContainer');
+        elem.parentNode.removeChild(elem);
+        var canvas = document.getElementById('chart');
+        canvas.style.display = 'visible';
+        var footer = document.querySelector('footer');
+        var thankYou = document.createTextNode('Thank you for taking the time to complete this survey. We truly value the information you have provided.');
+        footer.appendChild(thankYou);
+        var data = [];
+        var name = [];
+        for (var j = 0; j < productNum.length; j++) {
+          data.push(productNum[j].timesClicked);
+          name.push(productNum[j].name);
         }
+        chart(name,data);
       }
     }
   }
@@ -88,3 +94,41 @@ var imageContainer = document.getElementById('imageContainer');
 imageContainer.addEventListener('click', productSelector);
 
 renderImages();
+
+function chart(name, data) {
+
+  var canvas = document.getElementById('chart');
+  canvas.style.display = 'collapse';
+  var ctx = canvas.getContext('2d');
+
+  var chartConfig = {
+    type: 'horizontalBar',
+    data: {
+      labels: name,
+      datasets: [{
+        label: 'clicked',
+        data: data,
+        backgroundColor: 'rgba(1, 103, 190, 0.2)',
+        borderColor: 'rgba(3, 177, 196, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      animation: {
+        duration: 3500
+      },
+      title: {
+        display: true,
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  };
+
+  var myChart = new Chart(ctx, chartConfig);
+}
