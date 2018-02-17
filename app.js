@@ -84,7 +84,7 @@ function productSelector(event) {
           data.push(productNum[j].timesClicked);
           name.push(productNum[j].name);
         }
-        chart(name,data);
+        chart(name, data);
       }
     }
   }
@@ -102,33 +102,33 @@ function chart(name, data) {
   var ctx = canvas.getContext('2d');
 
   var chartConfig = {
-    type: 'horizontalBar',
+    type: 'bar',
     data: {
       labels: name,
       datasets: [{
-        label: 'clicked',
+        label: '# Times Clicked',
         data: data,
-        backgroundColor: 'rgba(1, 103, 190, 0.2)',
-        borderColor: 'rgba(3, 177, 196, 1)',
+        backgroundColor: 'rgb(137, 205, 215)',
+        borderColor: 'rgba(255, 159, 64, 1)',
         borderWidth: 1
-      }]
+      },]
     },
     options: {
       animation: {
-        duration: 3500
+        duration: 5000,
       },
       title: {
-        display: true,
+        text: 'Product Click Frequency'
       },
       scales: {
         yAxes: [{
           ticks: {
+            stepSize: 1,
             beginAtZero:true
           }
         }]
       }
     }
   };
-
   var myChart = new Chart(ctx, chartConfig);
 }
