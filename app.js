@@ -22,23 +22,26 @@ function Product(name, filepath, id) {
   };
 }
 
-new Product('Bag', 'img/bag.jpg', 'bag');
-new Product('Banana', 'img/banana.jpg', 'banana');
-new Product('Bathroom', 'img/bathroom.jpg', 'bathroom');
-new Product('Boots', 'img/boots.jpg', 'boots');
-new Product('Breakfast', 'img/breakfast.jpg', 'breakfast');
-new Product('Bubblegum', 'img/bubblegum.jpg', 'bubblegum');
-new Product('Chair', 'img/chair.jpg', 'chair');
-new Product('Cthulhu', 'img/cthulhu.jpg', 'cthulhu');
-new Product('Dog-duck', 'img/dog-duck.jpg', 'dog-duck');
-new Product('Dragon', 'img/dragon.jpg', 'dragon');
-new Product('Pen', 'img/pen.jpg', 'pen');
-new Product('Pet-sweep', 'img/pet-sweep.jpg', 'pet-sweep');
-new Product('Tauntaun', 'img/tauntaun.jpg', 'tauntaun');
-new Product('Unicorn', 'img/unicorn.jpg', 'unicorn');
-new Product('Usb', 'img/usb.gif', 'usb');
-new Product('Water-can', 'img/water-can.jpg', 'water-can');
-new Product('Wine-glass', 'img/wine-glass.jpg', 'wine-glass');
+function newProduct() {
+  new Product('Bag', 'img/bag.jpg', 'bag');
+  new Product('Banana', 'img/banana.jpg', 'banana');
+  new Product('Bathroom', 'img/bathroom.jpg', 'bathroom');
+  new Product('Boots', 'img/boots.jpg', 'boots');
+  new Product('Breakfast', 'img/breakfast.jpg', 'breakfast');
+  new Product('Bubblegum', 'img/bubblegum.jpg', 'bubblegum');
+  new Product('Chair', 'img/chair.jpg', 'chair');
+  new Product('Cthulhu', 'img/cthulhu.jpg', 'cthulhu');
+  new Product('Dog-duck', 'img/dog-duck.jpg', 'dog-duck');
+  new Product('Dragon', 'img/dragon.jpg', 'dragon');
+  new Product('Pen', 'img/pen.jpg', 'pen');
+  new Product('Pet-sweep', 'img/pet-sweep.jpg', 'pet-sweep');
+  new Product('Tauntaun', 'img/tauntaun.jpg', 'tauntaun');
+  new Product('Unicorn', 'img/unicorn.jpg', 'unicorn');
+  new Product('Usb', 'img/usb.gif', 'usb');
+  new Product('Water-can', 'img/water-can.jpg', 'water-can');
+  new Product('Wine-glass', 'img/wine-glass.jpg', 'wine-glass');
+}
+newProduct();
 
 var randomNum = function() {
   return Math.floor(Math.random() * productNum.length);
@@ -96,7 +99,7 @@ imageContainer.addEventListener('click', productSelector);
 renderImages();
 
 function chart(name, data) {
-
+  localStorage.setItem('productNum', JSON.stringify(productNum));
   var canvas = document.getElementById('chart');
   canvas.style.display = 'collapse';
   var ctx = canvas.getContext('2d');
@@ -117,13 +120,11 @@ function chart(name, data) {
       animation: {
         duration: 5000,
       },
-      title: {
-        text: 'Product Click Frequency'
-      },
       scales: {
         yAxes: [{
           ticks: {
             stepSize: 1,
+            max: 10,
             beginAtZero:true
           }
         }]
